@@ -13,6 +13,7 @@ public class ItemUpdatersManager {
         itemUpdaters.add(new RagnarosItemUpdater());
         itemUpdaters.add(new AgedBrieItemUpdater());
         itemUpdaters.add(new BackstageItemUpdater());
+        itemUpdaters.add(new ConjuredItemUpdater());
         itemUpdaters.add(new NormalItemUpdater());
     }
 
