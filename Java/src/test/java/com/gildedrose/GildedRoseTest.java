@@ -86,6 +86,30 @@ public class GildedRoseTest {
         assertEquals(item.quality,0);
     }
 
+    @Test
+    public void testUpdateOnConjuredItem() {
+        Item item = new Item(GildedRose.CONJURED,10,10);
+        updateItem(item,1);
+        assertEquals(item.sellIn,9);
+        assertEquals(item.quality,8);
+    }
+
+    @Test
+    public void testMultipleUpdateOnConjuredNotExpiredItem() {
+        Item item = new Item(GildedRose.CONJURED,10,10);
+        updateItem(item,5);
+        assertEquals(item.sellIn,5);
+        assertEquals(item.quality,0);
+    }
+
+    @Test
+    public void testMultipleUpdateOnConjuredExpiredItem() {
+        Item item = new Item(GildedRose.CONJURED,1,20);
+        updateItem(item,5);
+        assertEquals(item.sellIn,-4);
+        assertEquals(item.quality,20-2-4*4);
+    }
+
 
     private void updateItem(Item item, int times) {
         GildedRose app = new GildedRose(new Item[]{item});
