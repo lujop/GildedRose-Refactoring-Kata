@@ -26,6 +26,8 @@ class GildedRose {
             ItemUpdater updater = foundUpdater.get();
             updater.updateItemQuality(item);
             updater.updateItemSellIn(item);
+        } else {
+            throw new IllegalStateException("Item updater must be always found");
         }
     }
 }
